@@ -2,7 +2,7 @@ package cencusanalyser;
 
     public class CensusAnalyserException extends Exception {
 
-        enum ExceptionType {
+        public enum ExceptionType {
             CENSUS_FILE_PROBLEM, CSV_FILE_INTERNAL_ISSUES;
         }
         ExceptionType type;

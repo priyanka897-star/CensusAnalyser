@@ -2,7 +2,6 @@ import cencusanalyser.CensusAnalyser;
 import cencusanalyser.CensusAnalyserException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-
 import java.io.IOException;
 
 
@@ -33,6 +32,17 @@ public class CensusAnalyserTest {
 
         }
     }
+
+    @Test
+    public void givenWrongDelimiter_ReturnCustomException(){
+        try{
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            int numOfRecords = censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_WRONGDELIMITER);
+        }catch (CensusAnalyserException e){
+            Assertions.assertEquals(CensusAnalyserException.ExceptionType.CSV_FILE_INTERNAL_ISSUES,e.type);
+        }
+    }
+
     @Test
     public void givenIncorrectCsvHeader_ShouldReturnCustomException(){
         try{
@@ -70,7 +80,17 @@ public class CensusAnalyserTest {
             Assertions.assertEquals(CensusAnalyserException.ExceptionType.CSV_FILE_INTERNAL_ISSUES,e.type);
         }
     }
+    @Test
+    public void givenWrongHeadersForStateCodeCsv_ReturnsCustomeException(){
+        try {
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            int numOfRecords = censusAnalyser.loadStateCodeData(STATECODECSV_WRONGDELIMITER);
+        }catch (CensusAnalyserException e){
+            Assertions.assertEquals(CensusAnalyserException.ExceptionType.CSV_FILE_INTERNAL_ISSUES, e.type);
+        }
+    }
 }
+
 
 
 

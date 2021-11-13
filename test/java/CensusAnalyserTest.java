@@ -15,7 +15,7 @@ public class CensusAnalyserTest {
                 CensusAnalyser censusAnalyser = new CensusAnalyser();
                 int numOfRecords = censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILEPATH);
                 Assertions.assertEquals(29, numOfRecords);
-            }catch (CensusAnalyserException e){ }
+            }catch (CensusAnalyserException | IOException e){ }
         }
     @Test
     public void givenWrongIndiaCensusCsvFile_ReturnsException() {

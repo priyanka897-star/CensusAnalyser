@@ -42,6 +42,7 @@ public class CensusAnalyser {
         }catch (RuntimeException e){
             throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.CSV_FILE_INTERNAL_ISSUES);
         }
+
     }
 }
 

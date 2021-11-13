@@ -2,15 +2,22 @@ package cencusanalyser;
 
     public class CensusAnalyserException extends Exception {
 
-        enum ExceptionType{
-            CENSUS_FILE_PROBLEM;
-        }
 
-        ExceptionType type;
+         ExceptionType type;
 
-        public CensusAnalyserException(String message, ExceptionType type){
-            super(message);
-            this.type = type;
-        }
+        public enum ExceptionType {
+                CENSUS_FILE_PROBLEM, CSV_FILE_INTERNAL_ISSUES;
+            }
+
+
+
+
+         public CensusAnalyserException(String message, ExceptionType type) {
+                    super(message);
+                    this.type = type;
+                }
+
+
+
     }
 

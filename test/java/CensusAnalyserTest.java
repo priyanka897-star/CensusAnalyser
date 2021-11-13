@@ -48,7 +48,9 @@ public class CensusAnalyserTest {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
             int numOfRecords = censusAnalyser.loadStateCodeData(STATE_CODE_CSV);
             Assertions.assertEquals(37, numOfRecords);
-        }catch (CensusAnalyserException e){ }
+        }
+        catch (CensusAnalyserException e){
+        }
     }
     public void givenWrongStateCodePath_ReturnsCustomException(){
         try{
